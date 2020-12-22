@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 column">
+      <div class="search open">
+        <input type="search" class="search-box" #search/>
+        <span class="search-button" (click)="findOutlet(search.value)">
+          <span class="search-icon"></span>
+        </span>
+      </div>
+    </div>
+    </div>
+  <div class="row">
+    <div class="col-lg-12 column">
+      <ng-container *ngIf="outlets.length; else noresult">
+        <div class="card" style="width: 18rem;" *ngFor="let outlet of outlets">
+          <div class="card-body">
+            <h5 class="card-title">Outlet</h5>
+            <h6 class="card-subtitle mb-2 text-muted"></h6>
+            <h4 class="card-text">{{outlet.properties.Name}}</h4>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #noresult>
+        <p>No result found</p>
+      </ng-template>
+    </div>
+
+  </div>
+
+
+</div>
